@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TDARCS - Coming Soon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .pulse-slow {
+            animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in forwards;
+        }
+        
+        .fade-in-delay-1 {
+            animation: fadeIn 1s ease-in 0.2s forwards;
+            opacity: 0;
+        }
+        
+        .fade-in-delay-2 {
+            animation: fadeIn 1s ease-in 0.4s forwards;
+            opacity: 0;
+        }
+        
+        .fade-in-delay-3 {
+            animation: fadeIn 1s ease-in 0.6s forwards;
+            opacity: 0;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: particleFloat 20s infinite linear;
+        }
+        
+        @keyframes particleFloat {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen relative">
+    <!-- Animated Particles Background -->
+    <div class="particles">
+        <div class="particle w-2 h-2" style="left: 10%; animation-delay: 0s; animation-duration: 25s;"></div>
+        <div class="particle w-1 h-1" style="left: 20%; animation-delay: 5s; animation-duration: 20s;"></div>
+        <div class="particle w-3 h-3" style="left: 30%; animation-delay: 10s; animation-duration: 30s;"></div>
+        <div class="particle w-1 h-1" style="left: 40%; animation-delay: 15s; animation-duration: 22s;"></div>
+        <div class="particle w-2 h-2" style="left: 50%; animation-delay: 20s; animation-duration: 28s;"></div>
+        <div class="particle w-1 h-1" style="left: 60%; animation-delay: 8s; animation-duration: 24s;"></div>
+        <div class="particle w-2 h-2" style="left: 70%; animation-delay: 12s; animation-duration: 26s;"></div>
+        <div class="particle w-1 h-1" style="left: 80%; animation-delay: 18s; animation-duration: 23s;"></div>
+        <div class="particle w-3 h-3" style="left: 90%; animation-delay: 3s; animation-duration: 27s;"></div>
+    </div>
+
+    <div class="relative z-10 min-h-screen flex flex-col">
+        <!-- Header -->
+        <header class="container mx-auto px-6 py-8">
+            <div class="flex items-center justify-between fade-in">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center backdrop-blur-lg border border-white/30 overflow-hidden">
+                        <img src="Logo.png" alt="TDARCS Logo" class="w-full h-full object-contain">
+                    </div>
+                    <div class="text-white">
+                        <h1 class="font-bold text-2xl">TDARCS</h1>
+                        <p class="text-xs text-white/70 uppercase tracking-widest">Tech Driven Artistic Researched Coding Services</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-1 container mx-auto px-6 flex flex-col justify-center items-center text-center">
+            <!-- Company Logo and Tagline -->
+            <div class="mb-12 fade-in-delay-1">
+                <div class="mb-6 floating">
+                    <img src="Logo.png" alt="TDARCS Logo" class="w-32 h-32 md:w-48 md:h-48 mx-auto object-contain">
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-4">
+                    TDARCS
+                </h1>
+                <p class="text-xl md:text-2xl text-white/90 mb-2">
+                    Tech Driven Artistic Researched Coding Services
+                </p>
+                <div class="w-24 h-1 bg-white/50 mx-auto rounded-full pulse-slow"></div>
+            </div>
+
+            <!-- Coming Soon Message -->
+            <div class="mb-16 fade-in-delay-2">
+                <h2 class="text-3xl md:text-4xl font-semibold text-white mb-4">
+                    Something Amazing is Coming Soon
+                </h2>
+                <p class="text-lg text-white/80 max-w-2xl">
+                    We're crafting exceptional digital experiences and innovative solutions. 
+                    Our website is launching soon with cutting-edge services designed to elevate your business.
+                </p>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div class="mb-16 fade-in-delay-3">
+                <h3 class="text-2xl font-semibold text-white mb-8">Launch Countdown</h3>
+                <div class="flex flex-wrap justify-center gap-4 md:gap-8">
+                    <div class="countdown-item rounded-2xl p-6 text-center min-w-[100px]">
+                        <div id="days" class="text-3xl md:text-4xl font-bold text-white">00</div>
+                        <div class="text-white/70 text-sm uppercase tracking-wider">Days</div>
+                    </div>
+                    <div class="countdown-item rounded-2xl p-6 text-center min-w-[100px]">
+                        <div id="hours" class="text-3xl md:text-4xl font-bold text-white">00</div>
+                        <div class="text-white/70 text-sm uppercase tracking-wider">Hours</div>
+                    </div>
+                    <div class="countdown-item rounded-2xl p-6 text-center min-w-[100px]">
+                        <div id="minutes" class="text-3xl md:text-4xl font-bold text-white">00</div>
+                        <div class="text-white/70 text-sm uppercase tracking-wider">Minutes</div>
+                    </div>
+                    <div class="countdown-item rounded-2xl p-6 text-center min-w-[100px]">
+                        <div id="seconds" class="text-3xl md:text-4xl font-bold text-white">00</div>
+                        <div class="text-white/70 text-sm uppercase tracking-wider">Seconds</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Services Preview -->
+            <div class="max-w-6xl mx-auto mb-16 fade-in-delay-3">
+                <h3 class="text-2xl font-semibold text-white mb-8">Our Services</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="service-card rounded-2xl p-6 text-center">
+                        <div class="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9m0 9a9 9 0 01-9-9m9 0a9 9 0 00-9 9"></path>
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-semibold text-white mb-2">Website Building</h4>
+                        <p class="text-white/70 text-sm">Modern, responsive websites tailored to your business needs</p>
+                    </div>
+                    
+                    <div class="service-card rounded-2xl p-6 text-center">
+                        <div class="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-semibold text-white mb-2">Software Development</h4>
+                        <p class="text-white/70 text-sm">Custom software solutions for streamlined operations</p>
+                    </div>
+                    
+                    <div class="service-card rounded-2xl p-6 text-center">
+                        <div class="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-semibold text-white mb-2">Management Systems</h4>
+                        <p class="text-white/70 text-sm">Comprehensive systems to manage your business efficiently</p>
+                    </div>
+                    
+                    <div class="service-card rounded-2xl p-6 text-center">
+                        <div class="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m-9 0h10m-10 0a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V6a2 2 0 00-2-2M9 12l2 2 4-4"></path>
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-semibold text-white mb-2">Social Media Handling</h4>
+                        <p class="text-white/70 text-sm">Strategic social media management and content creation</p>
+                    </div>
+                    
+                    <div class="service-card rounded-2xl p-6 text-center">
+                        <div class="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-semibold text-white mb-2">SEO Optimization</h4>
+                        <p class="text-white/70 text-sm">Boost your online visibility with expert SEO strategies</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Get In Touch Form -->
+            <div class="max-w-2xl mx-auto mb-16">
+                <div class="service-card rounded-3xl p-8">
+                    <h3 class="text-3xl font-semibold text-white mb-4 text-center">Get In Touch</h3>
+                    <p class="text-white/80 mb-8 text-center">Ready to start your project? Let's discuss how we can help bring your vision to life.</p>
+                    
+                    <!-- Message container for feedback -->
+                    <div id="messageContainer" class="hidden mb-6 p-4 rounded-2xl text-center"></div>
+                    
+                    <form class="space-y-6" id="contactForm">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <input type="text" name="user_name" placeholder="Your Name" required
+                                       class="w-full px-6 py-4 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300">
+                            </div>
+                            <div>
+                                <input type="email" name="user_email" placeholder="Your Email" required
+                                       class="w-full px-6 py-4 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <input type="text" name="subject" placeholder="Subject"
+                                   class="w-full px-6 py-4 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300">
+                        </div>
+                        
+                        <div>
+                            <select name="service" class="w-full px-6 py-4 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300">
+                                <option value="" class="bg-purple-800">Select a Service</option>
+                                <option value="website" class="bg-purple-800">Website Building</option>
+                                <option value="software" class="bg-purple-800">Software Development</option>
+                                <option value="management" class="bg-purple-800">Management Systems</option>
+                                <option value="social" class="bg-purple-800">Social Media Handling</option>
+                                <option value="seo" class="bg-purple-800">SEO Optimization</option>
+                                <option value="other" class="bg-purple-800">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <textarea name="message" placeholder="Tell us about your project..." rows="5" required
+                                      class="w-full px-6 py-4 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-300 resize-none"></textarea>
+                        </div>
+                        
+                        <div class="text-center">
+                            <button type="submit" id="submitBtn" class="px-12 py-4 bg-white text-purple-700 rounded-2xl font-semibold hover:bg-white/90 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+                                <span id="submitText">Send Message</span>
+                                <span id="submitLoader" class="hidden">Sending...</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Newsletter Signup -->
+            <div class="text-center mb-16">
+                <h3 class="text-2xl font-semibold text-white mb-4">Get Notified When We Launch</h3>
+                <p class="text-white/80 mb-6">Be the first to experience our innovative digital solutions</p>
+                
+                <!-- Newsletter message container -->
+                <div id="newsletterMessage" class="hidden mb-4 p-3 rounded-full text-center max-w-md mx-auto"></div>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md mx-auto">
+                    <input type="email" placeholder="Enter your email" id="newsletterEmail"
+                           class="flex-1 px-6 py-3 rounded-full bg-white/20 backdrop-blur-lg border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-300">
+                    <button id="newsletterBtn" class="px-8 py-3 bg-white text-purple-700 rounded-full font-semibold hover:bg-white/90 transition-all duration-300 transform hover:scale-105">
+                        <span id="newsletterText">Notify Me</span>
+                        <span id="newsletterLoader" class="hidden">Subscribing...</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Social Media Links -->
+            <div class="text-center">
+                <h3 class="text-xl font-semibold text-white mb-6">Follow Us</h3>
+                <div class="flex justify-center space-x-6">
+                    <a href="https://www.facebook.com/tdarcs/" target="_blank" rel="noopener noreferrer" class="w-14 h-14 bg-white/20 backdrop-blur-lg border border-white/30 rounded-2xl flex items-center justify-center hover:bg-white/30 transition-all duration-300 transform hover:scale-110 hover:rotate-6">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/td.arcs?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="w-14 h-14 bg-white/20 backdrop-blur-lg border border-white/30 rounded-2xl flex items-center justify-center hover:bg-white/30 transition-all duration-300 transform hover:scale-110 hover:rotate-6">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.tiktok.com/@td.arcs?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="w-14 h-14 bg-white/20 backdrop-blur-lg border border-white/30 rounded-2xl flex items-center justify-center hover:bg-white/30 transition-all duration-300 transform hover:scale-110 hover:rotate-6">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="container mx-auto px-6 py-8 text-center">
+            <p class="text-white/60 text-sm">
+                © <span id="currentYear"></span> TDARCS. All rights reserved. | Crafted with innovation and excellence
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Initialize EmailJS
+        (function() {
+            emailjs.init("FfjWKIzqvb5dw67cn"); // Your EmailJS public key
+        })();
+
+        // Countdown Timer (30 days from now)
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const launchDate = now + (30 * 24 * 60 * 60 * 1000); // 30 days from now
+            
+            function updateTimer() {
+                const currentTime = new Date().getTime();
+                const distance = launchDate - currentTime;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+
+                if (distance < 0) {
+                    clearInterval(timer);
+                    document.querySelector('.countdown-container').innerHTML = '<h2 class="text-4xl font-bold text-white">We\'re Live!</h2>';
+                }
+            }
+
+            updateTimer();
+            const timer = setInterval(updateTimer, 1000);
+        }
+
+        // Initialize countdown on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCountdown();
+            
+            // Set current year in footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        });
+
+        // Function to show messages
+        function showMessage(message, type) {
+            const messageContainer = document.getElementById('messageContainer');
+            messageContainer.className = `mb-6 p-4 rounded-2xl text-center ${type === 'success' ? 'bg-green-500/20 border border-green-500/30 text-green-300' : 'bg-red-500/20 border border-red-500/30 text-red-300'}`;
+            messageContainer.textContent = message;
+            messageContainer.classList.remove('hidden');
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                messageContainer.classList.add('hidden');
+            }, 5000);
+        }
+
+        // Function to toggle submit button state
+        function toggleSubmitButton(loading) {
+            const submitBtn = document.getElementById('submitBtn');
+            const submitText = document.getElementById('submitText');
+            const submitLoader = document.getElementById('submitLoader');
+            
+            if (loading) {
+                submitText.classList.add('hidden');
+                submitLoader.classList.remove('hidden');
+                submitBtn.disabled = true;
+                submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+            } else {
+                submitText.classList.remove('hidden');
+                submitLoader.classList.add('hidden');
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+            }
+        }
+
+        // Function to show newsletter messages
+        function showNewsletterMessage(message, type) {
+            const messageContainer = document.getElementById('newsletterMessage');
+            messageContainer.className = `mb-4 p-3 rounded-full text-center max-w-md mx-auto ${type === 'success' ? 'bg-green-500/20 border border-green-500/30 text-green-300' : 'bg-red-500/20 border border-red-500/30 text-red-300'}`;
+            messageContainer.textContent = message;
+            messageContainer.classList.remove('hidden');
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                messageContainer.classList.add('hidden');
+            }, 5000);
+        }
+
+        // Function to toggle newsletter button state
+        function toggleNewsletterButton(loading) {
+            const newsletterBtn = document.getElementById('newsletterBtn');
+            const newsletterText = document.getElementById('newsletterText');
+            const newsletterLoader = document.getElementById('newsletterLoader');
+            
+            if (loading) {
+                newsletterText.classList.add('hidden');
+                newsletterLoader.classList.remove('hidden');
+                newsletterBtn.disabled = true;
+                newsletterBtn.classList.add('opacity-70', 'cursor-not-allowed');
+            } else {
+                newsletterText.classList.remove('hidden');
+                newsletterLoader.classList.add('hidden');
+                newsletterBtn.disabled = false;
+                newsletterBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+            }
+        }
+
+        // Newsletter subscription with EmailJS
+        document.getElementById('newsletterBtn').addEventListener('click', function() {
+            const email = document.getElementById('newsletterEmail').value;
+            
+            // Validate email
+            if (!email) {
+                showNewsletterMessage('Please enter a valid email address.', 'error');
+                return;
+            }
+            
+            // Basic email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showNewsletterMessage('Please enter a valid email address.', 'error');
+                return;
+            }
+            
+            // Show loading state
+            toggleNewsletterButton(true);
+            
+            // Prepare template parameters for newsletter subscription
+            const templateParams = {
+                to_email: 'tdarcs12@gmail.com',
+                subscriber_email: email,
+                subject: 'New Newsletter Subscription - TDARCS',
+                message: `New newsletter subscription from: ${email}\n\nThey want to be notified when TDARCS launches!`,
+                subscription_type: 'Launch Notification'
+            };
+
+            // Send notification using EmailJS
+            emailjs.send('service_7vcvwua', 'template_8txkrl6', templateParams)
+                .then(function(response) {
+                    console.log('Newsletter subscription SUCCESS!', response.status, response.text);
+                    showNewsletterMessage('Thank you! We\'ll notify you when TDARCS launches.', 'success');
+                    document.getElementById('newsletterEmail').value = '';
+                }, function(error) {
+                    console.log('Newsletter subscription FAILED...', error);
+                    showNewsletterMessage('Sorry, there was an error. Please try again later.', 'error');
+                })
+                .finally(function() {
+                    // Reset button state
+                    toggleNewsletterButton(false);
+                });
+        });
+
+        // Contact form submission with EmailJS
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            toggleSubmitButton(true);
+            
+            // Prepare template parameters
+            const templateParams = {
+                to_email: 'tdarcs12@gmail.com',
+                from_name: this.user_name.value,
+                from_email: this.user_email.value,
+                subject: this.subject.value || 'New Contact Form Submission',
+                service: this.service.value || 'Not specified',
+                message: this.message.value,
+                reply_to: this.user_email.value
+            };
+
+            // Send email using EmailJS
+            emailjs.send('service_7vcvwua', 'template_pffqsik', templateParams) // Your service ID and template ID
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    showMessage('Thank you! Your message has been sent successfully. We\'ll get back to you soon.', 'success');
+                    document.getElementById('contactForm').reset();
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    showMessage('Sorry, there was an error sending your message. Please try again or contact us directly at tdarcs12@gmail.com.', 'error');
+                })
+                .finally(function() {
+                    // Reset button state
+                    toggleSubmitButton(false);
+                });
+        });
+
+        // Smooth scroll for any anchor links (if added later)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
